@@ -53,7 +53,26 @@ precision, recall, p_macro, r_macro = main(
     eval_set="test"
 )
 ```
-
+"""
+  Function:
+    1. Call all the former functions
+  Inputs:
+    label_data: A list of labels corresponding to the dataset, which can be choosen as "sentiment_ratings", "product_types" or "helpfulness_ratings"
+    apply_stopwords_list: A boolean value to decide whether the dataset need to fliter stopwords
+    n: A value to decide use unigram or bigram
+    TF_IDF: A boolean value to decide whether the matrix of dataset need to use TF-IDF
+    toptoken_num: The number of the most frequent tokens to be used
+    regex: A regular expression to decide how to tokenize the dataset
+    k: batch size
+    lr: learning rate
+    n_iters: Number of Iterations
+    eval_set: Specify which set to evaluate (use"train" for training set, use "test" for test set, or use "dev" for development set)
+  return: 
+    precision: Precision rate of the target dataset
+    recall: Recall rate of the target dataset
+    p_macro: Macroaverage precision of the target dataset
+    r_macro: Macroaverage recall of the target dataset
+  """
 ---
 
 ## Results
