@@ -3,40 +3,43 @@ A coursework code related to an NLP system for the classification of product rev
 # Multi-Task Text Classification with Logistic Regression
 
 ## Overview
-This project implements a logistic regression-based multi-task classifier designed to handle:
-- **Sentiment Analysis**: Classify positive, negative, or neutral product reviews.
-- **Product Category Classification**: Identify product categories based on textual reviews.
-- **Helpfulness Analysis**: Classify reviews as helpful, unhelpful, or neutral.
+This project implements a logistic regression-based multi-task classifier on the following three datasets of Amazon Reviews:
+- **Sentiment Analysis**: Classify positive or negative sentiment labels.
+- **Product Types Classification**: Identify 24 product types based on the reviews.
+- **Helpfulness Analysis**: Recognize reviews as helpful, unhelpful, or neutral.
 
-The classifier leverages a modular design and supports parameter-based task switching. It evaluates the performance impact of various preprocessing methods (e.g., unigram/bigram, TF-IDF, stopwords filtering).
+The classifier uses a modular design and supports parameter-based task switching. It evaluates the model's performance with various preprocessing methods (e.g., unigram/bigram tokenization, One-hot/TF-IDF encodings, and stopwords filtering).
 
 ---
-## Features
-- **Multi-task Support**: One model for three classification tasks.
-- **Preprocessing Flexibility**: Supports combinations of:
+## Keypoint
+- **Multi-task Support**: One model for three classification tasks:
+  - Sentiment analysis with the dataset of sentiment_ratings
+  - Product types classification with the dataset of product_types
+  - Helpfulness analysis with the dataset of helpfulness_ratings 
+- **Diverse Feature Preprocessing Methods**: Supports individual and combination applications of the following methods:
   - Unigram or Bigram tokenization.
   - Use of TF-IDF or binary feature encoding.
   - Stopwords filtering.
-- **Comparative Analysis**: Evaluate preprocessing combinations' impact on precision, recall, and other metrics.
+- **Model evaluation**: Evaluate preprocessing combinations' impact on precision, recall, and other metrics.
 ---
 ## File Structure
-├── Compiled_Reviews.txt # Input data ├── main.py # Main script for task execution ├── modules/ # Encapsulated preprocessing and model training functions └── results/ # Output files (metrics, plots, etc.)
+- Compiled_Reviews.txt # Input data 
+- main() # Main function for task execution 
+- modules/ # Encapsulated preprocessing and model training functions
+- results/ # Outputs (the first five dimensions of the weight matrix, metrics, plots, etc.)
 ---
 ## Requirements
 - Python 3.8+
 - NumPy
 - Matplotlib
+- math
 - re
-
-Install dependencies using:
-```bash
-pip install -r requirements.txt
----
 
 ## Usage
 ## Run the Classifier
 The main function supports parameter-based control. Example:
 
+```python
 from main import main
 
 precision, recall, p_macro, r_macro = main(
@@ -49,12 +52,13 @@ precision, recall, p_macro, r_macro = main(
     n_iters=200,
     eval_set="test"
 )
+```
 
 ---
 
 ## Results
 Evaluation Metrics: Precision, Recall, Macro-average Precision/Recall.
 Weight Interpretation: Top 5 weights of the logistic regression model for each task.
-Comparative Performance: Effectiveness of preprocessing combinations visualized via plots.
+Evaluation of performance: Effectiveness of preprocessing combinations visualized via plots.
 
 Developed by [Mei Jia].
