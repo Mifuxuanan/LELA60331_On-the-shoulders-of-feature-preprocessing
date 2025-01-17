@@ -11,7 +11,6 @@ This project implements a logistic regression-based multi-task classifier design
 The classifier leverages a modular design and supports parameter-based task switching. It evaluates the performance impact of various preprocessing methods (e.g., unigram/bigram, TF-IDF, stopwords filtering).
 
 ---
-
 ## Features
 - **Multi-task Support**: One model for three classification tasks.
 - **Preprocessing Flexibility**: Supports combinations of:
@@ -19,15 +18,10 @@ The classifier leverages a modular design and supports parameter-based task swit
   - Use of TF-IDF or binary feature encoding.
   - Stopwords filtering.
 - **Comparative Analysis**: Evaluate preprocessing combinations' impact on precision, recall, and other metrics.
-
 ---
-
 ## File Structure
 ├── Compiled_Reviews.txt # Input data ├── main.py # Main script for task execution ├── modules/ # Encapsulated preprocessing and model training functions └── results/ # Output files (metrics, plots, etc.)
-
-
 ---
-
 ## Requirements
 - Python 3.8+
 - NumPy
@@ -37,7 +31,9 @@ The classifier leverages a modular design and supports parameter-based task swit
 Install dependencies using:
 ```bash
 pip install -r requirements.txt
+---
 
+## Usage
 ## Run the Classifier
 The main function supports parameter-based control. Example:
 
@@ -53,6 +49,8 @@ precision, recall, p_macro, r_macro = main(
     n_iters=200,
     eval_set="test"
 )
+
+---
 
 ## Results
 Evaluation Metrics: Precision, Recall, Macro-average Precision/Recall.
